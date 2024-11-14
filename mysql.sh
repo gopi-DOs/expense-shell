@@ -43,5 +43,12 @@ CHECK_ROOT
   systemctl start mysqld   &>>$LOG_FILE
   VALIDATE $? "started mysql server"
 
-  mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOG_FILE
-  VALIDATE $? "Setting up root password"
+   mysql -h mysql.bng81s.online -u root -pExpenseApp@1 -e 'show databases;' &>>$LOG_FILE
+   if [ $? -ne 0 ]
+    then 
+      echo "mysql root password is not setup, setting now"  &>>$LOG_FILE
+      mysql_secure_installation --set-root-pass ExpenseApp@1
+      VALIDATE $? "setting up root password"
+  else 
+     echo -e "mysql root password is already setup ..$Y skipping $N"     &>>$LOG_FILE
+fi
