@@ -76,7 +76,7 @@ mysql -h mysql.bng81s.online -uroot -pExpenseApp@1 < /app/schema/backend.sql
 VALIDATE $? "schema loading"
 
 systemctl daemon-reload  &>>$LOG_FILE
-VALIDATE "Deemon reload"
+VALIDATE $? "Deemon reload"
 
 systemctl start backend   &>>$LOG_FILE
 VALIDATE $? "start backend"
