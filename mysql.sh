@@ -43,7 +43,7 @@ CHECK_ROOT
   systemctl start mysqld   &>>$LOG_FILE
   VALIDATE $? "started mysql server"
 
-   mysql -h mysql.bng81s.online -u root -pExpenseApp@1 -e 'show databases;' &>>$LOG_FILE
+   mysql -h mysql.bng81s.online root -pExpenseApp@1 -e 'show databases;' &>>$LOG_FILE
    if [ $? -ne 0 ]
     then 
       echo "mysql root password is not setup, setting now"  &>>$LOG_FILE
