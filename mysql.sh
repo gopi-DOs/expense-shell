@@ -45,7 +45,7 @@ CHECK_ROOT
 
    mysql -h mysql.bng81s.online root -pExpenseApp@1 -e 'show databases;' &>>$LOG_FILE
    if [ $? -ne 0 ]
-    then 
+    then
       echo "mysql root password is not setup, setting now"  &>>$LOG_FILE
       mysql_secure_installation --set-root-pass ExpenseApp@1
       VALIDATE $? "setting up root password"
