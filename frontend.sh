@@ -59,6 +59,9 @@ VALIDATE $? "copied expense conf"
 systemctl restart nginx &>>$LOG_FILE
 VALIDATE $? "resrating"
 
+systemctl demon-reload &>>$LOG_FILE
+VALIDATE $? "reload"
+
 
 
 
