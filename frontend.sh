@@ -50,7 +50,7 @@ curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expe
 VALIDATE $? "installing code"
 
 cd /usr/share/nginx/html  &>>$LOG_FILE
-unzip /tmp/frontend.zip
+unzip /tmp/frontend.zip   &>>$LOG_FILE
 VALIDATE $? "Extract frontend"
 
 systemctl restart nginx  &>>$LOG_FILE
