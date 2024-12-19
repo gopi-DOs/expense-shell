@@ -53,6 +53,8 @@ cd /usr/share/nginx/html  &>>$LOG_FILE
 unzip /tmp/frontend.zip   &>>$LOG_FILE
 VALIDATE $? "Extract frontend"
 
+cp /home/ec2-user/expense-shell/expense.conf /etc/nginx/default.d/expense.conf
+
 systemctl restart nginx  &>>$LOG_FILE
 
 
