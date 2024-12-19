@@ -54,7 +54,6 @@ unzip /tmp/frontend.zip   &>>$LOG_FILE
 VALIDATE $? "Extract frontend"
 
 systemctl restart nginx  &>>$LOG_FILE
-VALIDATE $? "restart nginx"
 
 
 
