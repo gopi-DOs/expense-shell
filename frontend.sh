@@ -49,13 +49,13 @@ VALIDATE $? "removing default website"
 curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip  &>>$LOG_FILE
 VALIDATE $? "installing code"
 
-cd /usr/share/nginx/html  &>>$LOG_FILE
+cd /usr/share/nginx/html  
 unzip /tmp/frontend.zip   &>>$LOG_FILE
 VALIDATE $? "Extract frontend"
 
 cp /home/ec2-user/expense-shell/expense.conf /etc/nginx/default.d/expense.conf
-
-systemctl restart nginx  &>>$LOG_FILE
+VALIDATE $? "copied expense conf"
+systemctl restart nginx  
 
 
 
